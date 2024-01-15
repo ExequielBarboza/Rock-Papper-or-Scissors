@@ -16,34 +16,40 @@ function getComputerChoice() {
                 computerChoice = "scissors";
                 break;
     }
+    console.log("Computer choice is: " + computerChoice); // First console output
     return computerChoice;
 }
 
 
 // Part 2: where the player enters his/her option and plays a round!.
 
+let computerSelection = getComputerChoice();
 
-const computerSelection = getComputerChoice();
-console.log(computerSelection);
-const playerSelection = prompt("Enter a option: ");
+let playerOption = " ";
 
-function playRound(playerSelection,computerSelection) {
+function getPlayerOption(){
+    playerOption = prompt("Enter a option: ");
+    console.log("Your option is: " + playerOption);
+    return(playerOption.toLowerCase());
+}
 
-    playerSelection = playerSelection.toLowerCase();
+playerOption = getPlayerOption();
 
-    if (playerSelection === computerSelection){
+function playRound(playerOption,computerSelection) {
+
+    if (playerOption === computerSelection){
         return("It´s a Tie!")
-    } else if (playerSelection === "rock" && computerSelection === "paper"){
+    } else if (playerOption === "rock" && computerSelection === "paper"){
         return("You lose! Paper beats rock");
-    } else if(playerSelection === "rock" && computerSelection === "scissors") {
+    } else if(playerOption === "rock" && computerSelection === "scissors") {
         return("You win! Rock beats scissors");
-    } else if(playerSelection === "paper" && computerSelection === "rock") {
+    } else if(playerOption === "paper" && computerSelection === "rock") {
         return("You win! Paper beats rock");
-    } else if(playerSelection === "paper" && computerSelection === "scissors") {
+    } else if(playerOption === "paper" && computerSelection === "scissors") {
         return("You lose! Scissors beats paper");
-    } else if(playerSelection === "scissors" && computerSelection === "rock") {
+    } else if(playerOption === "scissors" && computerSelection === "rock") {
         return("You lose! Rock beats scissors");
-    } else if(playerSelection === "scissors" && computerSelection === "paper") {
+    } else if(playerOption === "scissors" && computerSelection === "paper") {
         return("You win! Scissors beats paper");
     } else {
         return("error");
@@ -51,7 +57,67 @@ function playRound(playerSelection,computerSelection) {
 
 }
 
-console.log(playRound(playerSelection, computerSelection));
+console.log(playRound(playerOption,computerSelection)); // Second console output
+
+// Part 3: Completing the game.
+
+let winPlayer = 0;
+let winComputer = 0;
+let numberTies = 0;
+
+function game() {
+    
+    switch (playRound(playerOption,computerSelection)) {
+        case "It´s a Tie!":
+            numberTies++;
+            break;
+        case "You lose! Paper beats rock":
+        case "You lose! Rock beats scissors":
+        case "You lose! Scissors beats paper":
+            winComputer++;
+            break;
+        case "You win! Paper beats rock":
+        case "You win! Rock beats scissors":
+        case "You win! Scissors beats paper":
+            winPlayer++;
+            break;
+        default:
+            numberTies++;
+    }
+    console.log("You won " + winPlayer + " times.");
+    console.log("You lose " + winComputer + " times.");
+    console.log("Number of ties: " + numberTies);
+
+}
+game(); 
 
 
+function playGame() {
+    playerOption = getPlayerOption();
+    computerSelection = getComputerChoice();
+    playRound(playerOption,computerSelection);
+    game();
+    
+    playerOption = getPlayerOption();
+    computerSelection = getComputerChoice();
+    playRound(playerOption,computerSelection);
+    game();
+
+    playerOption = getPlayerOption();
+    computerSelection = getComputerChoice();
+    playRound(playerOption,computerSelection);
+    game();
+
+    playerOption = getPlayerOption();
+    computerSelection = getComputerChoice();
+    playRound(playerOption,computerSelection);
+    game();
+
+    playerOption = getPlayerOption();
+    computerSelection = getComputerChoice();
+    playRound(playerOption,computerSelection);
+    game();
+    }
+
+playGame();
 // Rock = 1; Pappel = 2; Scissors = 3
