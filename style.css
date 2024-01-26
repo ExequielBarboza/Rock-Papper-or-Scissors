@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;}
+
+body {
+    background-color: rgb(95, 103, 160); 
+}
+
+#title {
+    padding: 35px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    background-color: rgb(80,95,140);
+    text-shadow: solid black 35px;
+    font-size: 50px;
+    letter-spacing: 15px;
+    text-align: center;}
+
+button {
+    color: rgba(0, 0, 0, 0);
+    background-color: whitesmoke;
+    width: 100px;
+    height: 150px;
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: rgb(175, 175, 175);
+    transform: scale(1.1);
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#Welcome {
+    display:flex;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 30px;
+    margin-bottom: -45px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(180, 198, 143);
+}
+
+#buttons {
+    display: flex;
+    gap: 25px;
+    padding: 25px;
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(0, 0, 0);
+    border: 10px solid black;
+    background-color: rgb(255, 255, 255);
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    background-color:rgb(80,95,140);
+    color: wheat;
+}
+
+#rock {
+    background-image:url("Images/rock.jpg");
+    background-size: cover;
+}
+#paper {
+    background-image:url("Images/paper.jpg");
+    background-size: cover;
+}
+#scissors {
+    background-image:url("Images/scissors.webp");
+    background-size: cover;
+}
+
+p {
+    font-size: 15px;
+}
